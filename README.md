@@ -54,50 +54,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File mod_manager_gui_v3.ps1
 
 Click **UNINSTALL** in the mod manager — this removes the overlay directory and restores your original `0.papgt`. Your game is back to 100% vanilla.
 
-## Included Mods
-
-Two example stamina mods are included in `mods/`:
-
-| Mod | Description |
-|-----|-------------|
-| **Stamina v3 Lite — 50% Drain** | Halves stamina drain for all movement actions (sprint, flight, horse, climbing, aerial, swing, swim, dodge, vehicle) |
-| **Stamina v3 Lite — Infinite** | Removes stamina drain entirely for all movement actions |
-
-Combat stamina is unchanged — only movement costs are affected.
-
-## Creating Your Own Mods
-
-Mods are simple JSON files placed in the `mods/` folder:
-
-```json
-{
-  "name": "my_mod",
-  "version": "1.0",
-  "description": "What this mod does",
-  "author": "YourName",
-  "patches": [
-    {
-      "game_file": "gamedata/skill.pabgb",
-      "changes": [
-        {
-          "offset": 494682,
-          "label": "[Flight] CrowWing_hover -25.0 -> -12.500",
-          "original": "589effff",
-          "patched": "2ccfffff"
-        }
-      ]
-    }
-  ]
-}
-```
-
-| Field | Description |
-|-------|-------------|
-| `offset` | Byte offset in the decompressed game file |
-| `original` | Expected original hex bytes (verified before patching) |
-| `patched` | Replacement hex bytes |
-| `label` | Human-readable description shown in the GUI |
-
 ## Folder Structure
 
 ```
@@ -115,7 +71,6 @@ backups/                 — automatic backup of original 0.papgt
 
 - Windows 10/11
 - Crimson Desert (Steam)
-- **EXE version**: No dependencies — everything is bundled
 - **Source version**: Python 3.10+ with `lz4` (`pip install lz4`)
 
 ## Compatibility
