@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pyo
+*.exe
+*.spec
+build/
+dist/
+backups/*.papgt
+mods/enabled/*.json
